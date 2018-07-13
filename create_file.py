@@ -106,7 +106,9 @@ for index, value in enumerate(value_of_total_crashed_sessions):
 ### Crash-free sessions
 for index, value in enumerate(value_of_total_sessions_for_builds):
     number_of_crashed = value_of_total_crashed_sessions[index]
-    result = ((value - number_of_crashed)*1.0/value) * 100.0
+    result = 100.0
+    if value != 0:
+        result = ((value - number_of_crashed)*1.0/value) * 100.0
     work_sheet.write(index + 2, column_of_crash_free_sessions_percent, "{0:.2f}%".format(result))
 
 ### All users
@@ -118,7 +120,9 @@ for index, value in enumerate(value_of_total_crashed_devices):
 ### Crash-free users
 for index, value in enumerate(value_of_dau_by_builds):
     number_of_crashed = value_of_total_crashed_devices[index]
-    result = ((value - number_of_crashed)*1.0/value)  * 100.0
+    result = 100.0
+    if value != 0:
+        result = ((value - number_of_crashed)*1.0/value)  * 100.0
     work_sheet.write(index + 2, column_of_crashed_devices_percent, "{0:.2f}%".format(result))
 
 time_list_of_total_sessions_for_builds
