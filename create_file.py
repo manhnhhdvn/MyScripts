@@ -1,6 +1,7 @@
 import xlwt
 import json
 import datetime
+import sys
 from pytz import timezone
 from datetime import date
 
@@ -22,6 +23,9 @@ for key in data_answers.keys():
         total_sessions_for_builds_key = key
     elif "dauByBuild" in key:
         dau_by_build_key = key
+if len(data_answers[total_sessions_for_builds_key]) != 0:
+    print("Multi app version selected. Please do not select \"Top Builds\".")
+    sys.exit()
 synthesized_build_version = data_answers[total_sessions_for_builds_key][0]["synthesizedBuildVersion"]
 
 ## Total session
@@ -65,11 +69,11 @@ for item in data_crashlytics[app_time_series_key]["impactedDevices"]:
 
 if len(time_list_of_total_sessions_for_builds) != len(time_list_of_total_crashed_sessions):
     print("Data Error!")
-    SystemExit
+    sys.exit()
 
 if len(time_list_of_dau_by_builds) != len(time_list_of_total_crashed_devices):
     print("Data Error!")
-    SystemExit
+    sys.exit()
 
 # Create file
 work_book = xlwt.Workbook()
