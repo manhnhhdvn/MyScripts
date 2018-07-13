@@ -5,6 +5,18 @@ import sys
 from pytz import timezone
 from datetime import date
 
+# Read me before run this script
+# - Do not select "Top Builds" in Fabric page. Please select "All version", or select only one specify version
+# - Data of file "total_crashes_count.json" can get from Fabric page, https://api-dash.fabric.io/graphql?relayDebugName=AppTimeseries API
+# - Data of file "total_sessions_and_users_count.json" can get from Fabric page, https://api-dash.fabric.io/graphql?relayDebugName=SessionAndUserMetrics API
+# - This file must same folder with files "total_crashes_count.json" and "total_sessions_and_users_count.json"
+
+# Other infor:
+# Python version: 2.7.14
+# pytz install: python -m pip install pytz
+#               easy_install --upgrade pytz
+# xlwt: https://github.com/python-excel/xlwt
+
 data_in_file_total_crashes_count = [] # https://api-dash.fabric.io/graphql?relayDebugName=AppTimeseries
 data_in_file_total_sessions_and_users_count = [] # https://api-dash.fabric.io/graphql?relayDebugName=SessionAndUserMetrics
 
@@ -133,9 +145,3 @@ time_list_of_total_sessions_for_builds
 file_name = "{0}~{1}.xls".format(time_list_of_total_sessions_for_builds[0], time_list_of_total_sessions_for_builds[-1])
 work_book.save(file_name)
 print("------------DONE------------")
-
-# Other infor:
-# Using python version: 2.7.14
-# pytz install: python -m pip install pytz
-#               easy_install --upgrade pytz
-# xlwt: https://github.com/python-excel/xlwt
