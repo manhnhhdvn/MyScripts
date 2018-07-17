@@ -5,8 +5,8 @@ import sys
 from pytz import timezone
 from datetime import date
 
-# Read me before run this script
-# - Do not select "Top Builds" in Fabric page. Please select "All version", or select only one specify version
+# Read me first
+# - Do not select "Top Builds" in Fabric page. Please select "All version", or select a specify version
 # - Data of file "total_crashes_count.json" can get from Fabric page, https://api-dash.fabric.io/graphql?relayDebugName=AppTimeseries API
 # - Data of file "total_sessions_and_users_count.json" can get from Fabric page, https://api-dash.fabric.io/graphql?relayDebugName=SessionAndUserMetrics API
 # - This file must same folder with files "total_crashes_count.json" and "total_sessions_and_users_count.json"
